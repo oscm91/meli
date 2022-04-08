@@ -59,9 +59,9 @@ export function Details({ facade, history }: DetailsProps) {
           }
         </div>
         <div className="flex flex-col container">
-          <Detail title={product?.item?.title} description={product?.item?.description} image={product?.item?.picture}>
-            <p className="text-xs">{product?.item?.condition} - 324 vendidos</p>
-            <h3 className="text-lg font-semibold">Deco Reverse Sombrero Oxford</h3>
+          <Detail title="Descripción del producto" description={product?.item?.description} image={product?.item?.picture}>
+            <p className="text-xs">{product?.item?.condition} - {product?.item?.sold_quantity} vendidos</p>
+            <h3 className="text-lg font-semibold">{product?.item?.title}</h3>
             <h4 className="text-4xl font-normal pt-3 pb-10">
               $ {product?.item?.price?.amount}
             </h4>

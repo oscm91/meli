@@ -24,9 +24,9 @@ export const handlers = [
           condition: item.condition,
           free_shipping: item.shipping.free_shipping,
           price: {
-            currency: item.installments.currency_id,
-            amount: item.installments.amount,
-            decimal: item.price
+            currency: item.currency_id,
+            amount: item.price,
+            decimal: 0
           }
         }))
       }),
@@ -50,8 +50,8 @@ export const handlers = [
           title: result.title,
           price: {
             currency: result.currency_id,
-            amount: result.available_quantity,
-            decimals: result.price,
+            amount: result.price,
+            decimals: 0,
           },
           picture: `http://http2.mlstatic.com/D_${result.thumbnail_id}-L.jpg`,
           condition: result.condition,
