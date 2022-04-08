@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/b854080fc23973fb46050f6481854685ac8c73c39cc01446eb9c47ee8cf87984","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"b854080fc23973fb46050f6481854685ac8c73c39cc01446eb9c47ee8cf87984"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/197a650b9bd70e91ee2195518dc8b1657879148c3b1e4c5cd37177b18c29a8a8","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"197a650b9bd70e91ee2195518dc8b1657879148c3b1e4c5cd37177b18c29a8a8"}).DEBUG;
 	}
 
 	return r;
@@ -2917,7 +2917,7 @@ function Details({
 
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/items?search=${searchTerm}`);
+      history.goTo(`/meli/items?search=${searchTerm}`);
     }
   }, [searchTerm]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -3016,9 +3016,9 @@ function Home({
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(() => {
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/items?search=${searchTerm}`);
+      history.goTo(`/meli/items?search=${searchTerm}`);
     } else {
-      history.goTo('/');
+      history.goTo('/meli/');
     }
   }, [searchTerm]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -3123,9 +3123,9 @@ function Search({
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(() => {
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/items?search=${searchTerm}`);
+      history.goTo(`/meli/items?search=${searchTerm}`);
     } else {
-      history.goTo('/');
+      history.goTo('/meli/');
     }
   }, [searchTerm]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
