@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bf4393f6c7568d614b54dc2bb74ff7e17ee34c4cfb978fd68559310fb770ab20","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bf4393f6c7568d614b54dc2bb74ff7e17ee34c4cfb978fd68559310fb770ab20"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/781f962d2656cf6bd0e88b2b3e432b344cbc035cea57eac45a36520d69c128db","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"781f962d2656cf6bd0e88b2b3e432b344cbc035cea57eac45a36520d69c128db"}).DEBUG;
 	}
 
 	return r;
@@ -2091,7 +2091,7 @@ function Details() {
     return {
       goTo: location => history.push(location),
       getPathname: history.location.pathname || '',
-      getSearch: () => (history.location.pathname || '').replace('/items/', '')
+      getSearch: () => (history.location.pathname || '').split('/items/')[1]
     };
   }, [history]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_stepform_ui__WEBPACK_IMPORTED_MODULE_1__.Pages.Detail, {
@@ -2130,7 +2130,7 @@ function Home() {
     return {
       goTo: location => history.push(location),
       getPathname: history.location.pathname || '',
-      getSearch: () => (history.location.search || '').replace('?search=', '')
+      getSearch: () => (history.location.search || '').split('?search=')[1]
     };
   }, [history]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_stepform_ui__WEBPACK_IMPORTED_MODULE_1__.Pages.Home, {
@@ -2169,7 +2169,7 @@ function Search() {
     return {
       goTo: location => history.push(location),
       getPathname: history.location.pathname || '',
-      getSearch: () => (history.location.search || '').replace('?search=', '')
+      getSearch: () => (history.location.search || '').split('?search=')[1]
     };
   }, [history]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_stepform_ui__WEBPACK_IMPORTED_MODULE_1__.Pages.Search, {
