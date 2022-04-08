@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/0f2d4705fdc153586830b3338b72beb626ecde771a03b2fa996342048fbc31e6","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"0f2d4705fdc153586830b3338b72beb626ecde771a03b2fa996342048fbc31e6"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/0e5a67f3f1cc0480c27780406e9b006d9c34d6b27def59f4d2c60512c4f6fd5b","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"0e5a67f3f1cc0480c27780406e9b006d9c34d6b27def59f4d2c60512c4f6fd5b"}).DEBUG;
 	}
 
 	return r;
@@ -2901,6 +2901,8 @@ function Details({
   facade,
   history
 }) {
+  var _product$item, _product$item2, _product$item3, _product$item4, _product$item5, _product$item5$price;
+
   const [searchTerm, setSearchTerm] = react__WEBPACK_IMPORTED_MODULE_0__.useState('');
   const searchProduct = react__WEBPACK_IMPORTED_MODULE_0__.useCallback((0,lodash__WEBPACK_IMPORTED_MODULE_4__.debounce)(term => facade.searchProduct(term)), [facade]);
   const getProduct = react__WEBPACK_IMPORTED_MODULE_0__.useCallback((0,lodash__WEBPACK_IMPORTED_MODULE_4__.debounce)(() => facade.getProduct(history.getSearch())), [facade, history]);
@@ -2963,18 +2965,18 @@ function Details({
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "flex flex-col container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_detail__WEBPACK_IMPORTED_MODULE_3__.Detail, {
-          title: product.item.title,
-          description: product.item.description,
-          image: product.item.picture,
+          title: product == null ? void 0 : (_product$item = product.item) == null ? void 0 : _product$item.title,
+          description: product == null ? void 0 : (_product$item2 = product.item) == null ? void 0 : _product$item2.description,
+          image: product == null ? void 0 : (_product$item3 = product.item) == null ? void 0 : _product$item3.picture,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
             className: "text-xs",
-            children: [product.item.condition, " - 324 vendidos"]
+            children: [product == null ? void 0 : (_product$item4 = product.item) == null ? void 0 : _product$item4.condition, " - 324 vendidos"]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
             className: "text-lg font-semibold",
             children: "Deco Reverse Sombrero Oxford"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h4", {
             className: "text-4xl font-normal pt-3 pb-10",
-            children: ["$ ", product.item.price.amount]
+            children: ["$ ", product == null ? void 0 : (_product$item5 = product.item) == null ? void 0 : (_product$item5$price = _product$item5.price) == null ? void 0 : _product$item5$price.amount]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             className: "relative bg-blue-500 text-white w-full px-6 py-2 rounded text-md font-normal overflow-hidden",
             children: "Comprar"
