@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_REACT_APP_BASE_HREF":"/meli","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/ef331f65839bd9d67a96ddb6b39a3f6795ae92766910752fdb3e0e47f2facff1","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"ef331f65839bd9d67a96ddb6b39a3f6795ae92766910752fdb3e0e47f2facff1"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_REACT_APP_BASE_HREF":"/meli","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/6493961d8a9fffb74ab56203c77a85bc2b997534989a382884a5ceb5bc3d5710","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"6493961d8a9fffb74ab56203c77a85bc2b997534989a382884a5ceb5bc3d5710"}).DEBUG;
 	}
 
 	return r;
@@ -2209,7 +2209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var msw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9198);
 
-const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items', async (req, res, ctx) => {
+const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/items`, async (req, res, ctx) => {
   const query = req.url.searchParams.get('search');
   const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`);
   const result = await response.json();
@@ -2234,7 +2234,7 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items', a
       }
     }))
   }));
-}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items/:id', async (req, res, ctx) => {
+}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/items/:id`, async (req, res, ctx) => {
   const {
     id
   } = req.params;
@@ -2260,7 +2260,7 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items', a
       category_id: result.category_id
     }
   }));
-}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items/:id/description', async (req, res, ctx) => {
+}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/items/:id/description`, async (req, res, ctx) => {
   const {
     id
   } = req.params;
@@ -2269,7 +2269,7 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items', a
   return res(ctx.status(200), ctx.json({
     description: result.plain_text
   }));
-}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/categories/:id', async (req, res, ctx) => {
+}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/categories/:id`, async (req, res, ctx) => {
   const {
     id
   } = req.params;
@@ -2356,8 +2356,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const searchProduct = name => {
   const action = async (dispatch, getState, getAsyncReducer) => {
-    const url = `/meli/api/items?search=${name}`;
-    const data = await fetch(url).then(response => response.json());
+    const data = await fetch(`${"/meli"}/api/items?search=${name}`).then(response => response.json());
     const asyncReducer = await getAsyncReducer();
     const tempState = await asyncReducer(getState(), {
       type: _actions_actionTypes__WEBPACK_IMPORTED_MODULE_0__.PRODUCTS_SEARCH,
@@ -2376,9 +2375,9 @@ const searchProduct = name => {
 };
 const getProduct = id => {
   const action = async (dispatch, getState, getAsyncReducer) => {
-    const product = await fetch(`/meli/api/items/${id}`).then(response => response.json());
-    const description = await fetch(`/meli/api/items/${id}/description`).then(response => response.json());
-    const categories = await fetch(`/meli/api/categories/${product.item.category_id}`).then(response => response.json());
+    const product = await fetch(`${"/meli"}/api/items/${id}`).then(response => response.json());
+    const description = await fetch(`${"/meli"}/api/items/${id}/description`).then(response => response.json());
+    const categories = await fetch(`${"/meli"}/api/categories/${product.item.category_id}`).then(response => response.json());
     const asyncReducer = await getAsyncReducer();
     const tempState = await asyncReducer(getState(), {
       type: _actions_actionTypes__WEBPACK_IMPORTED_MODULE_0__.PRODUCTS_GET,
@@ -2809,7 +2808,7 @@ function Header({
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "flex-none",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-          href: "/meli",
+          href: `${"/meli"}/`,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_logo__WEBPACK_IMPORTED_MODULE_1__.Logo, {})
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -3176,7 +3175,7 @@ function Search({
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_card__WEBPACK_IMPORTED_MODULE_1__.Card, {
             title: value.condition,
             image: value.picture,
-            onClick: () => history.goTo(`/meli/items/${value.id}`),
+            onClick: () => history.goTo(`${"/meli"}/items/${value.id}`),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "flex gap-2 items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h4", {
@@ -39517,7 +39516,7 @@ __webpack_require__.r(__webpack_exports__);
 _mocks_browser__WEBPACK_IMPORTED_MODULE_6__.worker.stop();
 _mocks_browser__WEBPACK_IMPORTED_MODULE_6__.worker.start({
   serviceWorker: {
-    url: '/meli/mockServiceWorker.js'
+    url: `${"/meli"}/mockServiceWorker.js`
   }
 }).then();
 const store = (0,_stepform_store__WEBPACK_IMPORTED_MODULE_3__.getStore)((0,redux_localstorage_simple__WEBPACK_IMPORTED_MODULE_5__.load)());
@@ -39527,13 +39526,13 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Switch, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
-          path: "/meli/items/:id",
+          path: `${"/meli"}/items/:id`,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_app_details__WEBPACK_IMPORTED_MODULE_9__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
-          path: "/meli/items",
+          path: `${"/meli"}/items`,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_app_search__WEBPACK_IMPORTED_MODULE_8__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
-          path: "/meli/",
+          path: `${"/meli"}/`,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_app_home__WEBPACK_IMPORTED_MODULE_7__["default"], {})
         })]
       })
