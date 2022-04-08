@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/0e5a67f3f1cc0480c27780406e9b006d9c34d6b27def59f4d2c60512c4f6fd5b","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"0e5a67f3f1cc0480c27780406e9b006d9c34d6b27def59f4d2c60512c4f6fd5b"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bf4393f6c7568d614b54dc2bb74ff7e17ee34c4cfb978fd68559310fb770ab20","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bf4393f6c7568d614b54dc2bb74ff7e17ee34c4cfb978fd68559310fb770ab20"}).DEBUG;
 	}
 
 	return r;
@@ -2901,7 +2901,7 @@ function Details({
   facade,
   history
 }) {
-  var _product$item, _product$item2, _product$item3, _product$item4, _product$item5, _product$item5$price;
+  var _product$categories, _product$categories2, _product$item, _product$item2, _product$item3, _product$item4, _product$item5, _product$item5$price;
 
   const [searchTerm, setSearchTerm] = react__WEBPACK_IMPORTED_MODULE_0__.useState('');
   const searchProduct = react__WEBPACK_IMPORTED_MODULE_0__.useCallback((0,lodash__WEBPACK_IMPORTED_MODULE_4__.debounce)(term => facade.searchProduct(term)), [facade]);
@@ -2955,8 +2955,8 @@ function Details({
       className: "flex flex-col items-center bg-gray-100",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "flex container py-4",
-        children: product.categories.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_breadcrumbs__WEBPACK_IMPORTED_MODULE_2__.Breadcrumbs, {
-          children: product.categories.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_breadcrumbs__WEBPACK_IMPORTED_MODULE_2__.BreadcrumbsItem, {
+        children: product != null && (_product$categories = product.categories) != null && _product$categories.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_breadcrumbs__WEBPACK_IMPORTED_MODULE_2__.Breadcrumbs, {
+          children: product == null ? void 0 : (_product$categories2 = product.categories) == null ? void 0 : _product$categories2.map(category => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_breadcrumbs__WEBPACK_IMPORTED_MODULE_2__.BreadcrumbsItem, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
               children: category
             })
