@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bc41c9716d181cbcaaca6213a312dd4c03ec2bb2ed9680f6ebf9df75da6a77ea","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bc41c9716d181cbcaaca6213a312dd4c03ec2bb2ed9680f6ebf9df75da6a77ea"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/b854080fc23973fb46050f6481854685ac8c73c39cc01446eb9c47ee8cf87984","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"b854080fc23973fb46050f6481854685ac8c73c39cc01446eb9c47ee8cf87984"}).DEBUG;
 	}
 
 	return r;
@@ -2209,7 +2209,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var msw__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9198);
 
-const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/api/items', async (req, res, ctx) => {
+const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items', async (req, res, ctx) => {
   const query = req.url.searchParams.get('search');
   const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`);
   const result = await response.json();
@@ -2234,7 +2234,7 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/api/items', async 
       }
     }))
   }));
-}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/api/items/:id', async (req, res, ctx) => {
+}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items/:id', async (req, res, ctx) => {
   const {
     id
   } = req.params;
@@ -2260,7 +2260,7 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/api/items', async 
       category_id: result.category_id
     }
   }));
-}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/api/items/:id/description', async (req, res, ctx) => {
+}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/items/:id/description', async (req, res, ctx) => {
   const {
     id
   } = req.params;
@@ -2269,7 +2269,7 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/api/items', async 
   return res(ctx.status(200), ctx.json({
     description: result.plain_text
   }));
-}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/api/categories/:id', async (req, res, ctx) => {
+}), msw__WEBPACK_IMPORTED_MODULE_0__.rest.get('/meli/api/categories/:id', async (req, res, ctx) => {
   const {
     id
   } = req.params;
