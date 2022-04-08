@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_REACT_APP_BASE_HREF":"/meli","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/6493961d8a9fffb74ab56203c77a85bc2b997534989a382884a5ceb5bc3d5710","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"6493961d8a9fffb74ab56203c77a85bc2b997534989a382884a5ceb5bc3d5710"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_REACT_APP_BASE_HREF":"/meli","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/5e3bd18fcbd0d6d687599cece382976b4cbe32de86f892d33bf9189720faf435","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"5e3bd18fcbd0d6d687599cece382976b4cbe32de86f892d33bf9189720faf435"}).DEBUG;
 	}
 
 	return r;
@@ -2212,7 +2212,14 @@ __webpack_require__.r(__webpack_exports__);
 const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/items`, async (req, res, ctx) => {
   const query = req.url.searchParams.get('search');
   const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`);
-  const result = await response.json();
+  let result;
+
+  try {
+    result = await response.json();
+  } catch (e) {
+    return res(ctx.status(200), ctx.json({}));
+  }
+
   return res(ctx.status(200), ctx.json({
     author: {
       name: 'Oscar',
@@ -2239,7 +2246,14 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/item
     id
   } = req.params;
   const response = await fetch(`https://api.mercadolibre.com/items/${id}`);
-  const result = await response.json();
+  let result;
+
+  try {
+    result = await response.json();
+  } catch (e) {
+    return res(ctx.status(200), ctx.json({}));
+  }
+
   return res(ctx.status(200), ctx.json({
     author: {
       name: 'Oscar',
@@ -2265,7 +2279,14 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/item
     id
   } = req.params;
   const response = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
-  const result = await response.json();
+  let result;
+
+  try {
+    result = await response.json();
+  } catch (e) {
+    return res(ctx.status(200), ctx.json({}));
+  }
+
   return res(ctx.status(200), ctx.json({
     description: result.plain_text
   }));
@@ -2274,7 +2295,14 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/item
     id
   } = req.params;
   const response = await fetch(`https://api.mercadolibre.com/categories/${id}`);
-  const result = await response.json();
+  let result;
+
+  try {
+    result = await response.json();
+  } catch (e) {
+    return res(ctx.status(200), ctx.json({}));
+  }
+
   return res(ctx.status(200), ctx.json({
     categories: result.path_from_root.reduce((categories, filter) => {
       return [].concat(categories, filter.name);
