@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/9185436d490c4a58a5142bb3eb4080b52558a341fbfd768496c44f5ee9df5dee","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"9185436d490c4a58a5142bb3eb4080b52558a341fbfd768496c44f5ee9df5dee"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bc41c9716d181cbcaaca6213a312dd4c03ec2bb2ed9680f6ebf9df75da6a77ea","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bc41c9716d181cbcaaca6213a312dd4c03ec2bb2ed9680f6ebf9df75da6a77ea"}).DEBUG;
 	}
 
 	return r;
@@ -2356,7 +2356,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const searchProduct = name => {
   const action = async (dispatch, getState, getAsyncReducer) => {
-    const data = await fetch(`http://localhost:4200/api/items?search=${name}`).then(response => response.json());
+    const url = `/meli/api/items?search=${name}`;
+    const data = await fetch(url).then(response => response.json());
     const asyncReducer = await getAsyncReducer();
     const tempState = await asyncReducer(getState(), {
       type: _actions_actionTypes__WEBPACK_IMPORTED_MODULE_0__.PRODUCTS_SEARCH,
@@ -2375,9 +2376,9 @@ const searchProduct = name => {
 };
 const getProduct = id => {
   const action = async (dispatch, getState, getAsyncReducer) => {
-    const product = await fetch(`http://localhost:4200/api/items/${id}`).then(response => response.json());
-    const description = await fetch(`http://localhost:4200/api/items/${id}/description`).then(response => response.json());
-    const categories = await fetch(`http://localhost:4200/api/categories/${product.item.category_id}`).then(response => response.json());
+    const product = await fetch(`/meli/api/items/${id}`).then(response => response.json());
+    const description = await fetch(`/meli/api/items/${id}/description`).then(response => response.json());
+    const categories = await fetch(`/meli/api/categories/${product.item.category_id}`).then(response => response.json());
     const asyncReducer = await getAsyncReducer();
     const tempState = await asyncReducer(getState(), {
       type: _actions_actionTypes__WEBPACK_IMPORTED_MODULE_0__.PRODUCTS_GET,
@@ -39512,7 +39513,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _mocks_browser__WEBPACK_IMPORTED_MODULE_6__.worker.stop();
-_mocks_browser__WEBPACK_IMPORTED_MODULE_6__.worker.start().then();
+_mocks_browser__WEBPACK_IMPORTED_MODULE_6__.worker.start({
+  serviceWorker: {
+    url: '/meli/mockServiceWorker.js'
+  }
+}).then();
 const store = (0,_stepform_store__WEBPACK_IMPORTED_MODULE_3__.getStore)((0,redux_localstorage_simple__WEBPACK_IMPORTED_MODULE_5__.load)());
 react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, {
   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
