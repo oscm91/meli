@@ -5,7 +5,15 @@ export const handlers = [
     const query = req.url.searchParams.get('search')
 
     const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`)
-    const result = await response.json();
+    let result
+    try {
+      result = await response.json();
+    } catch (e) {
+      return res(
+        ctx.status(200),
+        ctx.json({})
+      );
+    }
 
     return res(
       ctx.status(200),
@@ -36,7 +44,15 @@ export const handlers = [
     const { id } = req.params;
 
     const response = await fetch(`https://api.mercadolibre.com/items/${id}`)
-    const result = await response.json();
+    let result
+    try {
+      result = await response.json();
+    } catch (e) {
+      return res(
+        ctx.status(200),
+        ctx.json({})
+      );
+    }
 
     return res(
       ctx.status(200),
@@ -66,7 +82,16 @@ export const handlers = [
     const { id } = req.params;
 
     const response = await fetch(`https://api.mercadolibre.com/items/${id}/description`)
-    const result = await response.json();
+
+    let result
+    try {
+      result = await response.json();
+    } catch (e) {
+      return res(
+        ctx.status(200),
+        ctx.json({})
+      );
+    }
 
     return res(
       ctx.status(200),
@@ -79,7 +104,15 @@ export const handlers = [
     const { id } = req.params;
 
     const response = await fetch(`https://api.mercadolibre.com/categories/${id}`)
-    const result = await response.json();
+    let result
+    try {
+      result = await response.json();
+    } catch (e) {
+      return res(
+        ctx.status(200),
+        ctx.json({})
+      );
+    }
 
     return res(
       ctx.status(200),
