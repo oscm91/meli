@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/60aa08c46b09693ad81a2f4b8e826325ec1dd20a1116f0f2c0ba66c02aee9511","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"60aa08c46b09693ad81a2f4b8e826325ec1dd20a1116f0f2c0ba66c02aee9511"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec"}).DEBUG;
 	}
 
 	return r;
@@ -2919,7 +2919,7 @@ function Details({
 
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/meli/items?search=${searchTerm}`);
+      history.goTo(`${({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec"}).REACT_APP_BASE_HREF}/items?search=${searchTerm}`);
     }
   }, [searchTerm]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -3018,9 +3018,9 @@ function Home({
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(() => {
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/meli/items?search=${searchTerm}`);
+      history.goTo(`${({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec"}).REACT_APP_BASE_HREF}/items?search=${searchTerm}`);
     } else {
-      history.goTo('/meli/');
+      history.goTo(`${({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec"}).REACT_APP_BASE_HREF}/`);
     }
   }, [searchTerm]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -3125,9 +3125,9 @@ function Search({
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(() => {
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/meli/items?search=${searchTerm}`);
+      history.goTo(`${({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec"}).REACT_APP_BASE_HREF}/items?search=${searchTerm}`);
     } else {
-      history.goTo('/meli/');
+      history.goTo(`${({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"bd7fa57397f04a492819ebc9030a68955ad810ab771f312944bc996a113beaec"}).REACT_APP_BASE_HREF}/`);
     }
   }, [searchTerm]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
