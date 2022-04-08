@@ -26,7 +26,7 @@ export function Details({ facade, history }: DetailsProps) {
 
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/items?search=${searchTerm}`)
+      history.goTo(`${process.env.NX_REACT_APP_BASE_HREF}/items?search=${searchTerm}`)
     }
   }, [searchTerm])
 
@@ -49,9 +49,9 @@ export function Details({ facade, history }: DetailsProps) {
       </Header>
       <div className="flex flex-col items-center bg-gray-100">
         <div className="flex container py-4">
-          { product.categories.length ?
+          { product?.categories?.length ?
             <Breadcrumbs>
-              {product.categories.map((category) => (<BreadcrumbsItem
+              {product?.categories?.map((category) => (<BreadcrumbsItem
               >
                 <p>{category}</p>
               </BreadcrumbsItem>))}
@@ -59,11 +59,11 @@ export function Details({ facade, history }: DetailsProps) {
           }
         </div>
         <div className="flex flex-col container">
-          <Detail title={product.item.title} description={product.item.description} image={product.item.picture}>
-            <p className="text-xs">{product.item.condition} - 324 vendidos</p>
+          <Detail title={product?.item?.title} description={product?.item?.description} image={product?.item?.picture}>
+            <p className="text-xs">{product?.item?.condition} - 324 vendidos</p>
             <h3 className="text-lg font-semibold">Deco Reverse Sombrero Oxford</h3>
             <h4 className="text-4xl font-normal pt-3 pb-10">
-              $ {product.item.price.amount}
+              $ {product?.item?.price?.amount}
             </h4>
             <button className="relative bg-blue-500 text-white w-full px-6 py-2 rounded text-md font-normal overflow-hidden">Comprar</button>
           </Detail>

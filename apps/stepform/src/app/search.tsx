@@ -13,7 +13,7 @@ function Search() {
     return {
       goTo: (location) => history.push(location),
       getPathname: history.location.pathname || '',
-      getSearch: () => (history.location.search || '').replace('?search=', ''),
+      getSearch: () => (history.location.search || '').split('?search=')[1],
     };
   }, [history]);
 

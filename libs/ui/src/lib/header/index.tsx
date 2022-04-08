@@ -13,7 +13,7 @@ export function Header({ children, onClick }: HeaderProps) {
       onClick={onClick}
     >
       <div className="flex container gap-5">
-        <div className="flex-none"><a href='/'><Logo /></a></div>
+        <div className="flex-none"><a href={`${process.env.NX_REACT_APP_BASE_HREF}/`}><Logo /></a></div>
         <div className="flex-grow">{children}</div>
       </div>
     </header>

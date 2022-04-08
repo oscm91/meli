@@ -14,9 +14,9 @@ export function Home({ facade, history }: HomeProps) {
   React.useEffect(() => {
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/items?search=${searchTerm}`)
+      history.goTo(`${process.env.NX_REACT_APP_BASE_HREF}/items?search=${searchTerm}`)
     } else {
-      history.goTo('/')
+      history.goTo(`${process.env.NX_REACT_APP_BASE_HREF}/`)
     }
   }, [searchTerm])
 

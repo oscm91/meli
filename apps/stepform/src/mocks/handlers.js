@@ -1,7 +1,7 @@
 import { rest } from 'msw'
 
 export const handlers = [
-  rest.get('/api/items', async (req, res, ctx) => {
+  rest.get(`${process.env.NX_REACT_APP_BASE_HREF}/api/items`, async (req, res, ctx) => {
     const query = req.url.searchParams.get('search')
 
     const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`)
@@ -32,7 +32,7 @@ export const handlers = [
       }),
     )
   }),
-  rest.get('/api/items/:id', async (req, res, ctx) => {
+  rest.get(`${process.env.NX_REACT_APP_BASE_HREF}/api/items/:id`, async (req, res, ctx) => {
     const { id } = req.params;
 
     const response = await fetch(`https://api.mercadolibre.com/items/${id}`)
@@ -62,7 +62,7 @@ export const handlers = [
       }),
     )
   }),
-  rest.get('/api/items/:id/description', async (req, res, ctx) => {
+  rest.get(`${process.env.NX_REACT_APP_BASE_HREF}/api/items/:id/description`, async (req, res, ctx) => {
     const { id } = req.params;
 
     const response = await fetch(`https://api.mercadolibre.com/items/${id}/description`)
@@ -75,7 +75,7 @@ export const handlers = [
       }),
     )
   }),
-  rest.get('/api/categories/:id', async (req, res, ctx) => {
+  rest.get(`${process.env.NX_REACT_APP_BASE_HREF}/api/categories/:id`, async (req, res, ctx) => {
     const { id } = req.params;
 
     const response = await fetch(`https://api.mercadolibre.com/categories/${id}`)

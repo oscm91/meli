@@ -13,7 +13,11 @@ import Details from './app/details';
 
 worker.stop();
 
-worker.start().then();
+worker.start({
+  serviceWorker: {
+    url: `${process.env.NX_REACT_APP_BASE_HREF}/mockServiceWorker.js`,
+  },
+}).then();
 
 const store: Store<any, any> = getStore(load());
 
@@ -22,13 +26,13 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/items/:id">
+          <Route path={`${process.env.NX_REACT_APP_BASE_HREF}/items/:id`}>
             <Details />
           </Route>
-          <Route path="/items">
+          <Route path={`${process.env.NX_REACT_APP_BASE_HREF}/items`}>
             <Search />
           </Route>
-          <Route path="/">
+          <Route path={`${process.env.NX_REACT_APP_BASE_HREF}/`}>
             <Home />
           </Route>
         </Switch>

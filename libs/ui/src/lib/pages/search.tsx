@@ -24,9 +24,9 @@ export function Search({ facade, history }: SearchProps) {
   React.useEffect(() => {
     if (searchTerm !== '') {
       searchProduct(searchTerm);
-      history.goTo(`/items?search=${searchTerm}`)
+      history.goTo(`${process.env.NX_REACT_APP_BASE_HREF}/items?search=${searchTerm}`)
     } else {
-      history.goTo('/')
+      history.goTo(`${process.env.NX_REACT_APP_BASE_HREF}/`)
     }
   }, [searchTerm])
 
@@ -60,7 +60,7 @@ export function Search({ facade, history }: SearchProps) {
         </div>
         <div className="flex flex-col container gap-y-0.5">
           {search.items.map((value) => {
-            return <Card title={value.condition} image={value.picture} onClick={() => history.goTo(`/items/${value.id}`)}>
+            return <Card title={value.condition} image={value.picture} onClick={() => history.goTo(`${process.env.NX_REACT_APP_BASE_HREF}/items/${value.id}`)}>
               <div className="flex gap-2 items-center">
                 <h4 className="text-lg font-medium">
                   $ {value.price.amount}

@@ -11,7 +11,7 @@ function Details() {
     return {
       goTo: (location) => history.push(location),
       getPathname: history.location.pathname || '',
-      getSearch: () => (history.location.pathname || '').replace('/items/', ''),
+      getSearch: () => (history.location.pathname || '').split('/items/')[1],
     };
   }, [history]);
 

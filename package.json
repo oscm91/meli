@@ -4,9 +4,9 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx run-many --target=test --all",
+    "start": "NX_REACT_APP_BASE_HREF= nx serve",
+    "build": "NX_REACT_APP_BASE_HREF=/meli nx build",
+    "test": "NX_REACT_APP_BASE_HREF=http://localhost:4200 nx run-many --target=test --all",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
