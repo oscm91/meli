@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/197a650b9bd70e91ee2195518dc8b1657879148c3b1e4c5cd37177b18c29a8a8","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"197a650b9bd70e91ee2195518dc8b1657879148c3b1e4c5cd37177b18c29a8a8"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/c9b196712963a50608cbae78acc13659df2fdf80ece8847b08185754468095cc","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"c9b196712963a50608cbae78acc13659df2fdf80ece8847b08185754468095cc"}).DEBUG;
 	}
 
 	return r;
@@ -39525,13 +39525,13 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Switch, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
-          path: "/items/:id",
+          path: "/meli/items/:id",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_app_details__WEBPACK_IMPORTED_MODULE_9__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
-          path: "/items",
+          path: "/meli/items",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_app_search__WEBPACK_IMPORTED_MODULE_8__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
-          path: "/",
+          path: "/meli/",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_app_home__WEBPACK_IMPORTED_MODULE_7__["default"], {})
         })]
       })
