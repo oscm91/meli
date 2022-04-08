@@ -1568,7 +1568,7 @@ function load() {
 
 	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
 	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = ({"NODE_ENV":"production","NX_REACT_APP_BASE_HREF":"/meli","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/5e3bd18fcbd0d6d687599cece382976b4cbe32de86f892d33bf9189720faf435","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"5e3bd18fcbd0d6d687599cece382976b4cbe32de86f892d33bf9189720faf435"}).DEBUG;
+		r = ({"NODE_ENV":"production","NX_REACT_APP_BASE_HREF":"/meli","NX_CLI_SET":"true","NX_INVOKED_BY_RUNNER":"true","NX_WORKSPACE_ROOT":"/Users/oscar.mora/Documents/me/meli","NX_TERMINAL_OUTPUT_PATH":"/Users/oscar.mora/Documents/me/meli/node_modules/.cache/nx/terminalOutputs/1c4292b7cfcaab23a704f4ff23c9e147f9f9cad5dba29a0b48ccf5784313715f","NX_FORWARD_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"stepform","NX_TASK_HASH":"1c4292b7cfcaab23a704f4ff23c9e147f9f9cad5dba29a0b48ccf5784313715f"}).DEBUG;
 	}
 
 	return r;
@@ -2231,13 +2231,13 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/item
     items: result.results.map(item => ({
       id: item.id,
       title: item.title,
-      picture: `http://http2.mlstatic.com/D_${item.thumbnail_id}-L.jpg`,
+      picture: `http://http2.mlstatic.com/D_${item.thumbnail_id}-XL.jpg`,
       condition: item.condition,
       free_shipping: item.shipping.free_shipping,
       price: {
-        currency: item.installments.currency_id,
-        amount: item.installments.amount,
-        decimal: item.price
+        currency: item.currency_id,
+        amount: item.price,
+        decimal: 0
       }
     }))
   }));
@@ -2264,8 +2264,8 @@ const handlers = [msw__WEBPACK_IMPORTED_MODULE_0__.rest.get(`${"/meli"}/api/item
       title: result.title,
       price: {
         currency: result.currency_id,
-        amount: result.available_quantity,
-        decimals: result.price
+        amount: result.price,
+        decimals: 0
       },
       picture: `http://http2.mlstatic.com/D_${result.thumbnail_id}-L.jpg`,
       condition: result.condition,
@@ -2784,7 +2784,7 @@ function Detail({
   image
 }) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "flex flex-row flex-wrap md:flex-nowrap p-3 bg-white",
+    className: "flex flex-row flex-wrap md:flex-nowrap p-3 bg-white gap-x-10",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex flex-grow items-start flex-col",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
@@ -2928,7 +2928,7 @@ function Details({
   facade,
   history
 }) {
-  var _product$categories, _product$categories2, _product$item, _product$item2, _product$item3, _product$item4, _product$item5, _product$item5$price;
+  var _product$categories, _product$categories2, _product$item, _product$item2, _product$item3, _product$item4, _product$item5, _product$item6, _product$item6$price;
 
   const [searchTerm, setSearchTerm] = react__WEBPACK_IMPORTED_MODULE_0__.useState('');
   const searchProduct = react__WEBPACK_IMPORTED_MODULE_0__.useCallback((0,lodash__WEBPACK_IMPORTED_MODULE_4__.debounce)(term => facade.searchProduct(term)), [facade]);
@@ -2992,18 +2992,18 @@ function Details({
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "flex flex-col container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_detail__WEBPACK_IMPORTED_MODULE_3__.Detail, {
-          title: product == null ? void 0 : (_product$item = product.item) == null ? void 0 : _product$item.title,
-          description: product == null ? void 0 : (_product$item2 = product.item) == null ? void 0 : _product$item2.description,
-          image: product == null ? void 0 : (_product$item3 = product.item) == null ? void 0 : _product$item3.picture,
+          title: "Descripci\xF3n del producto",
+          description: product == null ? void 0 : (_product$item = product.item) == null ? void 0 : _product$item.description,
+          image: product == null ? void 0 : (_product$item2 = product.item) == null ? void 0 : _product$item2.picture,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
             className: "text-xs",
-            children: [product == null ? void 0 : (_product$item4 = product.item) == null ? void 0 : _product$item4.condition, " - 324 vendidos"]
+            children: [product == null ? void 0 : (_product$item3 = product.item) == null ? void 0 : _product$item3.condition, " - ", product == null ? void 0 : (_product$item4 = product.item) == null ? void 0 : _product$item4.sold_quantity, " vendidos"]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
             className: "text-lg font-semibold",
-            children: "Deco Reverse Sombrero Oxford"
+            children: product == null ? void 0 : (_product$item5 = product.item) == null ? void 0 : _product$item5.title
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h4", {
             className: "text-4xl font-normal pt-3 pb-10",
-            children: ["$ ", product == null ? void 0 : (_product$item5 = product.item) == null ? void 0 : (_product$item5$price = _product$item5.price) == null ? void 0 : _product$item5$price.amount]
+            children: ["$ ", product == null ? void 0 : (_product$item6 = product.item) == null ? void 0 : (_product$item6$price = _product$item6.price) == null ? void 0 : _product$item6$price.amount]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             className: "relative bg-blue-500 text-white w-full px-6 py-2 rounded text-md font-normal overflow-hidden",
             children: "Comprar"
